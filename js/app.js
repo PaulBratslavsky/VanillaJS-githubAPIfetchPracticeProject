@@ -20,7 +20,7 @@ const showUI    = new UI();
 
         if (searchTerm !== '') {
             
-            http.getUser(searchTerm)
+            http.getUserAndRepos(searchTerm)
                 .then( result => {
 
                     const message       = 'User not found!';
@@ -30,6 +30,7 @@ const showUI    = new UI();
                         showUI.showAlert(message, classNames);
                     } else {
                         showUI.showProfile(result.profile);
+                        showUI.showRepos(result.repos);
                     } 
 
                 })
